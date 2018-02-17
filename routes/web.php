@@ -22,12 +22,23 @@ Route::get('/book/{id}','FrontendController@book');
 Auth::routes();
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['prefix' => 'admin','middleware' => 'auth'],function()
+Route::resource('/cart', 'CartController');
+Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
+//allow only Admin user to access these routes
+Route::group(['prefix' => 'admin','middleware' => ['auth','admin']],function()
 {
+Route::post('toggleRetrieved/{orderId}', 'OrderController@toggleRetrieved')->name('toggle.retrieved');
   Route::get('/',function(){
     return view('admin.index');
   })->name('admin.index');
+
   Route::resource('book','BooksController');
   Route::resource('category','CategoriesController');
+Route::get('orders/{type?}','OrderController@Orders');
 });
+//to allow only authenticated users to access these routes
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('borrowerinfo','CheckoutController@shipping')->name('checkout.shipping');
+});
+Route::get('receipt','CheckoutController@receipt')->name('checkout.receipt');
+Route::resource('address','AddressController');

@@ -7,14 +7,9 @@
 <ul class="container">
     @forelse($books as $book)
     <li class="row">
-
-
        <div class="col-md-8">
         <h4>Name of book:{{$book->name}}</h4>
-
-
         </div>
-
     </li>
 
         @empty

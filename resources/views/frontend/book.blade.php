@@ -29,7 +29,9 @@
                             </p>
                               <hr>
                           </label>
-                          <a href="#" class="button  expanded">Add to Cart</a>
+                          <a  href="{{route('cart.addItem',$book->id)}}" class="button expanded add-to-cart">
+                              Add to Cart
+                          </a>
                       </div>
                   </div>
               <p class="text-left subheader"><small>* Designed by NUC </small></p>

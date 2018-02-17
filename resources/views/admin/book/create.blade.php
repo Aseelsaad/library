@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h3>Add Product</h3>
+    <h3>Add new book</h3>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

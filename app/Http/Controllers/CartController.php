@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
 use App\Book;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
-class BooksController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('admin.book.index',compact('books'));
+       $cartItems=Cart::content();
+       return view('cart.index',compact('cartItems'));
+
     }
 
     /**
@@ -24,11 +25,10 @@ class BooksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($bookId)
     {
-      //to pass the categories from database to the form
-        $categories = Category::pluck('name','id');
-        return view ('admin.book.create',compact('categories'));
+    //
+
     }
 
     /**
@@ -39,31 +39,7 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-      //this will get all the form inputs except the image because it needs some work to do on
-      $formInput=$request->except('image');
-
-//        validation
-    $this->validate($request,[
-      //name should be something
-        'name'=>'required',
-        //image type and size
-        'image'=>'image|mimes:png,jpg,jpeg|max:10000'
-    ]);
-//        image upload, get it from the form
-    $image=$request->image;
-    //if there is an image save it to db
-    if($image){
-      //this will get us the original name
-        $imageName=$image->getClientOriginalName();
-        //here we will call the move method so will move it to images folder
-        $image->move('images',$imageName);
-        //add it to the array of formInput
-        $formInput['image']=$imageName;
-    }
-    //after getting all the form information let's create new item
-    Book::create($formInput);
-    //after creating the new book redirect us to the admin index page
-    return redirect()->route('book.index');
+        //
     }
 
     /**
@@ -74,10 +50,8 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -89,6 +63,15 @@ class BooksController extends Controller
     {
         //
     }
+
+    //a function that is called when we add a book to the cart
+     public function addItem($id)
+    {
+      $book = Book::find($id);
+      Cart::add($id,$book->name,1,0.00);
+      return back();
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -110,6 +93,7 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return back();
     }
 }
