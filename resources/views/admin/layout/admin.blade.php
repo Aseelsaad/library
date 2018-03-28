@@ -19,7 +19,7 @@
         @include('admin.layout.includes.sidenav')
         <div class="col-md-10 display-area">
             <div class="row text-center">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-12">
                     <div class="content-box-large">
                         @yield('content')
                     </div>

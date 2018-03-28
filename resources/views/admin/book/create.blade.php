@@ -25,9 +25,10 @@
 
             <div class="form-group">
                 {{ Form::label('type', 'Type') }}
-                {{ Form::select('type', [ 'book' => 'Book', 'thesis' => 'Thesis','graduationProject
-'=>'Graduation project
-'], null, ['class' => 'form-control']) }}
+                {{ Form::select('type', [ 'book' => 'Book',
+                'thesis' => 'Thesis',
+                'graduationProject'=>'Graduation project'
+                ], null, ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">

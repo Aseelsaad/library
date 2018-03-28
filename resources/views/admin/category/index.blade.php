@@ -15,7 +15,7 @@
 
                 </li>
             @empty
-                <li>No Books added yet</li>
+                <li>No Categories added yet</li>
             @endforelse
                 @endif
 

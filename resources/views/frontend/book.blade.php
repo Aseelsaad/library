@@ -29,6 +29,16 @@
                             </p>
                               <hr>
                           </label>
+
+                              <label>
+                                  Book's category :
+
+                                <p>
+                                  <!-- using model to get the name of Category -->
+                                    {{$book->Category->name}}
+                                </p>
+                                  <hr>
+                              </label>
                           <a  href="{{route('cart.addItem',$book->id)}}" class="button expanded add-to-cart">
                               Add to Cart
                           </a>

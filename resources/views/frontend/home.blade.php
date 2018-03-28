@@ -14,7 +14,13 @@
     <br>
     <a href="{{url('/books')}}"><button class="btn btn-danger btn-lg">Check out available books</button></a>
 </section>
-<br/>
+  <!-- Display message after entering the information of graduation documentation -->
+   @if (session('status'))
+       <div class="alert alert-success">
+           <h3 class="text-center">{{ session('status') }}</h3>
+       </div>
+       @endif
+<br>
 <div class="subheader text-center">
      <h2>
      Latest Books
@@ -28,11 +34,11 @@
     <div class="small-3 columns">
         <div class="item-wrapper">
             <div class="img-wrapper">
-                <a  href="{{route('cart.addItem',$book->id)}}" class="button expanded add-to-cart">
+                <a  href="{{route('cart.addItem',$book->id)}}" class="button  expanded add-to-cart">
                     Add to Cart
                 </a>
                 <a href="{{url('images',$book->image)}}">
-                    <img src="{{url('images',$book->image)}}"/>
+                    <img  src="{{url('images',$book->image)}}"/>
                 </a>
             </div>
           <a href="{{url('/book')}}/{{$book->id}}">
@@ -40,9 +46,6 @@
                     {{$book->name}}
                 </h3>
             </a>
-            <p>
-                {{$book->description}}
-            </p>
         </div>
     </div>
 
@@ -51,4 +54,6 @@
   @endforelse
 </div>
 <br>
+
+
 @endsection

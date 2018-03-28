@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Register')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -60,6 +62,13 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                          <input type="checkbox" class="form-check-input" name="admin" id="admin" >
+                          <label class="form-check-label" for="exampleCheck1">Admin account?</label>
+                        </div>
+                      </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

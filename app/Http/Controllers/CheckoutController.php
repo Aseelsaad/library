@@ -19,7 +19,9 @@ class CheckoutController extends Controller
    //Create the order
        Order::createOrder();
         //redirect user to some page
-        return "Order completed";
+        // $user=Auth::user();
+        $orders = Order::orderBy('id', 'desc')->take(1)->get();
+        return view ('frontend.receipt',compact('orders'));
    }
 
 

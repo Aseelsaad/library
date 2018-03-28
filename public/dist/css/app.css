@@ -1,6 +1,4 @@
 .top-bar, .top-bar ul {
-    /* background-color:rgba(29,119,13,0.88); */
-    background-color: #F8ECC2;
     border-bottom: 2px solid rgb(255,0,0);
 }
 
@@ -8,12 +6,11 @@
     padding: 4px 100px;
 }
 .top-bar a{
-	color: white;
+	color: black;
 }
 .top-bar a:hover{
 	text-decoration: underline;
 }
-
 
 /*HERO SECTION*/
 section.hero {
@@ -48,7 +45,7 @@ section.hero {
 .img-wrapper .add-to-cart {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  background-color: #333;
+  background-color: #dc3545;
   padding: 16px 8px;
   bottom: -50px;
   position: absolute;
@@ -89,43 +86,6 @@ p {
   max-width: 1400px;
 }
 
-.footer {
-  margin-top: 60px;
-padding-top : 5px;
-color: #fff
-width: 100%;
-background-color: #F8ECC2;
-  text-align: center;
-}
-.fa-twitter {
-    color: #0084b4;
-}
-
-.fa-facebook {
-    color: #3b5998;
-}
-
-.fa-youtube-play {
-    color: #FF0000;
-}
-
-
-.fa-linkedin {
-    color: #0077B5;
-}
-
-.fa {
-    opacity: 0.7;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-
-.fa:hover{
-    opacity: 1;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-
 @media only screen and (min-width: 40.063em) {
   .footer .columns:nth-child(n+2) {
     border-left: 1px solid #b3b3b3;
@@ -141,4 +101,18 @@ background-color: #F8ECC2;
 .brand-title{
   font-size: 30px;
   padding-top: 10px;
+}
+img{
+  position: relative;
+   float: left;
+   background-position: 50% 50%;
+}
+
+footer{
+padding: 5px;
+font-weight:300;
+color: black;
+background-color: #e6e6e6;
+clear: left;
+text-align: center;
 }

@@ -1,18 +1,11 @@
 @extends('layout.main')
 
-@section('title','Books')
+@section('title','Search books')
 @section('content')
 
-<!-- books listing -->
-       <!-- Latest books -->
+<!-- search result books -->
+
        <div class="container">
-         <!-- specify which type we are looking for -->
-         <h1>Choose your resource type</h1>
-         Filter :
-         <a href="/books/?type=book">Book | </a>
-         <a href="/books/?type=thesis">Thesis | </a>
-         <a href="/books/?type=graduationProject"> Graduation project |</a>
-         <a href="/books">All</a>
        <div class="row">
          <!-- create a pagination link that make me move from one page to another -->
          {{$books->links()}}
@@ -26,7 +19,7 @@
                         Add to Cart
                     </a>
                       <a href="{{url('images',$book->image)}}">
-                          <img  src="{{url('images',$book->image)}}"/>
+                          <img src="{{url('images',$book->image)}}"/>
                       </a>
                   </div>
                   <a href="{{url('/book')}}/{{$book->id}}">
@@ -36,6 +29,7 @@
                   </a>
                   <!-- <p>
                       {{$book->description}}
+
                   </p> -->
                   <p>
                       {{$book->type}}

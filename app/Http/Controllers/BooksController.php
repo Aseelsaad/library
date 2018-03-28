@@ -72,6 +72,15 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function search(Request $request)
+     {
+       $search = $request->search;
+       //search books by name
+         $books = Book::where('name', 'like', '%'.  $search . '%')->paginate(8)->appends('search',$search);
+       return view ('frontend.search',compact(['books','search']));
+     }
+
     public function show($id)
     {
 
